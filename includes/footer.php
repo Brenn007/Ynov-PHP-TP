@@ -1,6 +1,6 @@
-<footer>
-        <p>© 2024 CV/Portfolio.</p>
+    <footer>
+        <p>&copy; 2024 My CV/Portfolio</p>
     </footer>
-    <script src="assets/js/scripts.js"></script>
+    <script src="/asset/js/scripts.js"></script>
 </body>
 </html>

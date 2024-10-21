@@ -1,14 +1,14 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "cv_portfolio";
+// Database configuration
+$host = 'localhost';
+$db_name = 'your_database_name';
+$username = 'your_username';
+$password = 'your_password';
 
-// Crée la connexion
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Verifie la connexion
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$db_name", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Could not connect to the database $db_name :" . $e->getMessage());
 }
 ?>
