@@ -35,4 +35,4 @@ Ce projet est un site web de CV/Portfolio développé en PHP. Il permet aux util
 
 1. Clonez le dépôt GitHub :
    ```bash
-   git clone https://github.com/votre-utilisateur/votre-repo.git
+   git clone https://github.com/Brenn007/Ynov-PHP-TP.git
