@@ -1,6 +1,7 @@
-    <footer>
-        <p>&copy; 2024 My CV/Portfolio</p>
-    </footer>
-    <script src="/asset/js/scripts.js"></script>
+<footer>
+    <div class="container">
+        <p>© 2024 Mon CV/Portfolio. Tous droits réservés.</p>
+    </div>
+</footer>
 </body>
 </html>

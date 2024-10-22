@@ -1,36 +1,24 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connexion</title>
-    <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
-    <header>
-        <h1>CV/portofolio</h1>
-        <nav>
-            <ul>
-                <li><a href="../index.php">Accueil</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <div class="login-container">
-            <h2>Connexion</h2>
-            <form action="submit_login.php" method="post">
-                <label for="username">Nom d'utilisateur :</label>
-                <input type="text" id="username" name="username" required>
-                
-                <label for="password">Mot de passe :</label>
-                <input type="password" id="password" name="password" required>
-                
-                <button type="submit">Se connecter</button>
-            </form>
+<?php
+//inclure les fichiers nécessaires
+include 'includes/header.php';
+include 'includes/navbar.php';
+?>
+
+<div class="container">
+    <h1>Connexion</h1>
+    <form action="authenticate.php" method="post">
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" required>
         </div>
-    </main>
-    <footer>
-        <p>© 2024 CV/PHP</p>
-    </footer>
-</body>
-</html>
+        <div class="form-group">
+            <label for="password">Mot de passe:</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Se connecter</button>
+    </form>
+</div>
+
+<?php
+include 'includes/footer.php';
+?>

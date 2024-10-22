@@ -1,38 +1,42 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil</title>
-    <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
-    <header>
-        <h1>CV/portofolio</h1>
-        <nav>
-            <ul>
-                <li><a href="../index.php">Accueil</a></li>
-                <li><a href="../pages/contact.php">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <div class="profile-container">
-            <img src="path/to/profile-picture.jpg" alt="Photo de profil">
-            <h2>Nom de l'utilisateur</h2>
-            <p>Bio de l'utilisateur ou description courte.</p>
-            <div class="profile-info">
-                <label>Email :</label>
-                <span>user@example.com</span>
-                <label>Téléphone :</label>
-                <span>+33 1 23 45 67 89</span>
-                <label>Adresse :</label>
-                <span>123 Rue Exemple, 75000 Paris, France</span>
-            </div>
+<?php
+session_start();
+include 'includes/header.php';
+include 'includes/navbar.php';
+include 'config/database.php';
+include 'models/User.php';
+
+//verifier si l'utilisateur est connecte
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
+
+//recuperer les informations de l'utilisateur
+$user_id = $_SESSION['user_id'];
+$stmt = $pdo->prepare("SELECT * FROM users WHERE id = :id");
+$stmt->execute(['id' => $user_id]);
+$user = $stmt->fetch();
+?>
+
+<div class="container">
+    <h1>Profil de <?php echo htmlspecialchars($user['first_name'] . ' ' . $user['last_name']); ?></h1>
+    <form action="update_profile.php" method="post">
+        <div class="form-group">
+            <label for="first_name">Prénom:</label>
+            <input type="text" class="form-control" id="first_name" name="first_name" value="<?php echo htmlspecialchars($user['first_name']); ?>" required>
         </div>
-    </main>
-    <footer>
-        <p>© 2024 CV/PHP</p>
-    </footer>
-</body>
-</html>
+        <div class="form-group">
+            <label for="last_name">Nom:</label>
+            <input type="text" class="form-control" id="last_name" name="last_name" value="<?php echo htmlspecialchars($user['last_name']); ?>" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" value="<?php echo htmlspecialchars($user['email']); ?>" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Mettre à jour</button>
+    </form>
+</div>
+
+<?php
+include 'includes/footer.php';
+?>

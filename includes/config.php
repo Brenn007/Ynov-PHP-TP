@@ -1,5 +1,5 @@
 <?php
-// Database configuration
+//database configuration
 $host = 'localhost';
 $db_name = 'your_database_name';
 $username = 'your_username';
