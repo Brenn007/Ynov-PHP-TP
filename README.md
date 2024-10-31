@@ -25,7 +25,7 @@ Ce projet est un site web de CV/Portfolio développé en PHP. Il permet aux util
 
 ## 🛠️ Prérequis
 
-- 🌐 Serveur web (Nginx)
+- 🌐 Serveur web (xamp)
 - 🐘 PHP 7.4 ou supérieur
 - 🐬 MySQL 5.7 ou supérieur
 - 📦 Composer (pour gérer les dépendances PHP)
