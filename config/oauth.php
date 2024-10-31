@@ -4,9 +4,9 @@ require_once 'vendor/autoload.php';
 session_start();
 
 //configuration de l'application Google
-$clientID = 'VOTRE_CLIENT_ID';
-$clientSecret = 'VOTRE_CLIENT_SECRET';
-$redirectUri = 'http://votre-site.com/oauth_callback.php';
+$clientID = '';
+$clientSecret = ' ';
+$redirectUri = 'http://localhost/oauth.php';
 
 //creer un client Google
 $client = new Google_Client();

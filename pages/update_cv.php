@@ -1,28 +1,22 @@
 <?php
+$title = "Mise à jour du CV";
+$headerTitle = "Mise à jour du CV";
+include('../includes/header.php');
+
 session_start();
-include 'config/database.php';
+include('../config.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $user_id = $_SESSION['user_id'];
-    $title = htmlspecialchars($_POST['title']);
-    $description = htmlspecialchars($_POST['description']);
-    $skills = htmlspecialchars($_POST['skills']);
-    $experiences = htmlspecialchars($_POST['experiences']);
-    $educations = htmlspecialchars($_POST['educations']);
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $description = $_POST['description'];
 
-    //mettre à jour les informations du CV dans la base de données
-    $stmt = $pdo->prepare("UPDATE cvs SET title = :title, description = :description, skills = :skills, experiences = :experiences, educations = :educations WHERE user_id = :user_id");
-    $stmt->execute([
-        'title' => $title,
-        'description' => $description,
-        'skills' => $skills,
-        'experiences' => $experiences,
-        'educations' => $educations,
-        'user_id' => $user_id
-    ]);
-
-    //rediriger vers la page CV
-    header("Location: cv.php");
-    exit();
+    $sql = "UPDATE users SET name='$name', email='$email', description='$description' WHERE email='".$_SESSION['email']."'";
+    if ($conn->query($sql) === TRUE) {
+        echo "CV mis à jour avec succès.";
+    } else {
+        echo "Erreur de mise à jour du CV: " . $conn->error;
+    }
 }
+include('../includes/footer.php');
 ?>

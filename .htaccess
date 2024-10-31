@@ -1,4 +1,16 @@
 RewriteEngine On
+
+#exclure les fichiers et dossiers specifiques de la redirection
+RewriteCond %{REQUEST_URI} !^/css/
+RewriteCond %{REQUEST_URI} !^/js/
+RewriteCond %{REQUEST_URI} !^/images/
+RewriteCond %{REQUEST_URI} !^/pages/
+RewriteCond %{REQUEST_URI} !^/includes/
+RewriteCond %{REQUEST_URI} !^/index.php
+RewriteCond %{REQUEST_URI} !^/config.php
+RewriteCond %{REQUEST_URI} !^/router.php
+
+#rediriger toutes les autres requetes vers router.php
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php [QSA,L]
+RewriteRule ^(.*)$ router.php [QSA,L]

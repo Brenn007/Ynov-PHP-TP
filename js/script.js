@@ -1,5 +1,3 @@
-//script principal
-
 //fonction pour afficher une alerte de bienvenue
 function showWelcomeMessage() {
     alert("Bienvenue sur mon site CV/Portfolio!");

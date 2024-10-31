@@ -117,7 +117,7 @@ class User {
         ]);
     }
 
-    //mzthode pour supprimer un utilisateur
+    //methode pour supprimer un utilisateur
     public static function delete($pdo, $id) {
         $stmt = $pdo->prepare("DELETE FROM users WHERE id = :id");
         return $stmt->execute(['id' => $id]);

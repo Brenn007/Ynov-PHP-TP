@@ -1,7 +1,6 @@
-<footer>
-    <div class="container">
-        <p>© 2024 Mon CV/Portfolio. Tous droits réservés.</p>
-    </div>
-</footer>
+</main>
+    <footer>
+        <p>© 2024 Mon CV/Portfolio</p>
+    </footer>
 </body>
 </html>

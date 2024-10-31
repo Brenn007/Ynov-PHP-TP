@@ -1,26 +1,9 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Projet PHP</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
-</head>
-<body>
-    <header>
-        <h1>Bienvenue sur CV/portofolio</h1>
-        <nav>
-            <ul>
-                <li><a href="index.php">Accueil</a></li>
-                <li><a href="./pages/contact.php">Contact</a></li>
-                <li><a href="./pages/projects.php">projects</a></li>
-                <li><a href="./pages/cv.php">CV</a></li>
-                <li><a href="./pages/login.php">Connexion</a></li>
-            </ul>
-        </nav>
-    </header>
-    <footer>
-        <p>© 2024 CV/PHP</p>
-    </footer>
-</body>
-</html>
+<?php
+$title = "Accueil";
+$headerTitle = "Bienvenue sur mon CV/Portfolio";
+include('includes/header.php');
+echo '<link rel="stylesheet" type="text/css" href="./css/style.css">';
+?>
+<h2>Présentation</h2>
+<p>Bienvenue sur mon site CV/Portfolio. Vous trouverez ici toutes les informations me concernant ainsi que mes projets.</p>
+<?php include('includes/footer.php'); ?>
